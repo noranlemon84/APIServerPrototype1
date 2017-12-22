@@ -39,4 +39,31 @@ public class UserController {
 		
 		return jsonObject;
 	}
+	
+	
+	
+	@RequestMapping(value="/userinsert", method=RequestMethod.POST)
+	public @ResponseBody Map<String,Object> insertId(HttpServletRequest request) throws Exception {
+		
+		String user_id = request.getParameter("user_id");
+		String user_name = request.getParameter("user_name");
+		String user_addr = request.getParameter("user_addr");
+		
+		
+		int cnt = mapper.insertId(user_id, user_name, user_addr);
+		
+		Map<String, Object> jsonObject = new HashMap<String, Object>();
+		
+		
+		System.out.println("gogogogo [" + cnt + "]");
+		
+		
+		jsonObject.put("result_msg", cnt);
+		
+		return jsonObject;
+		
+		
+	}
+	
+	
 }

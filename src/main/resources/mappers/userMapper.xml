@@ -7,4 +7,11 @@
     	select count(*) from user where user_id = #{user_id}
     </select>
  
+ 
+ 	<insert id="insertId" parameterType="com.api.domain.UserVO" >
+ 		insert into user (user_id, user_name, user_addr) values
+ 		(#{user_id}, #{user_name}, #{user_addr})
+ 	</insert>
+
+
 </mapper>
